@@ -9,13 +9,13 @@ port = int(os.environ.get('PORT', 8000))
 face_crop = YoloV5FaceDetector()
 # initialize face recognition model
 model_interf = "GhostFaceNet_W1.3_S1_ArcFace.h5"
-if isinstance(model_interf, str) and model_interf.endswith("h5"):
+if isinstance(model_interf, str) and model_interf.endswith(".h5"):
     model = tf.keras.models.load_model(model_interf)
     model_interf = lambda imms: model((imms - 127.5) * 0.0078125).numpy()
 else:
     model_interf = model_interf
 
-    
+
 
 def get_max_user_id():
     # get current max_user_id
